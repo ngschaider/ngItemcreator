@@ -1,0 +1,46 @@
+if(!window.locales) {
+    window.locales = {};
+}
+
+
+window.locales.de = {
+    newItem: "Neues Item",
+    search: "Suchen",
+    close: "Schließen",
+    name: "Name",
+    label: "Bezeichnung",
+    weight: "Gewicht",
+    rare: "Selten?",
+    canRemove: "Entfernen möglich?",
+    executionSteps: "Ausführungsschritte",
+    save: "Speichern",
+    stepTypeAddItem: "Item zu Inventar hinzufügen",
+    stepTypeRemoveItem: "Item aus Inventar entfernen",
+    stepTypeShowNotification: "Benachrichtigung anzeigen",
+    stepTypeAddStatus: "Status-Wert hinzufügen",
+    stepTypeExecuteClientCommand: "Befehl clientseitig ausführen",
+    stepTypeExecuteServerCommand: "Befehl serverseitig ausführen",
+    stepTypeSpawnVehicle: "Fahrzeug spawnen",
+    stepTypeExecuteClientCode: "Lua-Code clientseitig ausführen",
+    stepTypeExecuteServerCode: "Lua-Code serverseitig ausführen",
+    /*stepTypeAttachProp: "Prop anheften",
+    stepTypePlayAnimation: "Animation abspielen",*/
+    stepTypeEat: "Essen",
+    stepTypeDrink: "Trinken",
+    invalidStep: "Ungültiger Ausführungsschritt!",
+    amount: "Menge",
+    text: "Text",
+    hunger: "Hunger",
+    thirst: "Durst",
+    stress: "Stress",
+    value: "Wert",
+    command: "Befehl",
+    code: "Code",
+    modelName: "Modellname",
+    persistent: "Permanent",
+    edit: "Bearbeiten",
+    delete: "Löschen",
+    createNewItem: "Neues Item erstellen",
+    addStep: "Schritt hinzufügen",
+    optional: "optional",
+}

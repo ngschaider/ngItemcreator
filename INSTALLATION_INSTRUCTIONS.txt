@@ -1,0 +1,77 @@
+Copy resource to resources folder and add start command to server.cfg
+Optionally, configure default language in config.js
+
+-- In order to make ESX recognize changes you should add this code to es_extended/server/common.lua at the end of the file:
+
+RegisterNetEvent("esx:refreshItems", function()
+	Citizen.CreateThread(function()
+		local items = MySQL.Sync.fetchAll('SELECT * FROM items', {});
+
+		ESX.Items = {};
+		for k,v in pairs(items) do
+			ESX.Items[v.name] = {
+				label = v.label,
+				weight = v.weight,
+				rare = v.rare,
+				canRemove = v.can_remove
+			}
+		end
+		
+		for playerId,xPlayer in pairs(ESX.Players) do
+			local foundItems = {};
+	
+			for index, inv in pairs(xPlayer.inventory) do
+				local item = ESX.Items[inv.name];
+	
+				if item then
+					foundItems[inv.name] = inv.count;
+				else
+					print(('[es_extended] [^3WARNING^7] Ignoring invalid item "%s"'):format(inv.name));
+				end
+			end
+	
+			local inventory = {};
+			local weight = 0;
+			for name, item in pairs(ESX.Items) do
+				local count = foundItems[name] or 0
+				if count > 0 then 
+					weight = weight + item.weight * count;
+				end
+	
+				table.insert(inventory, {
+					name = name,
+					count = count,
+					label = item.label,
+					weight = item.weight,
+					usable = ESX.UsableItemsCallbacks[name] ~= nil,
+					rare = item.rare,
+					canRemove = item.canRemove
+				});
+			end
+	
+			table.sort(inventory, function(a, b)
+				return a.label < b.label;
+			end)
+	
+			xPlayer.weight = weight;
+			xPlayer.inventory = inventory;
+			xPlayer.triggerEvent('esx:setPlayerData', {
+				accounts = xPlayer.getAccounts(),
+				coords = xPlayer.getCoords(),
+				identifier = xPlayer.getIdentifier(),
+				inventory = inventory,
+				job = xPlayer.getJob(),
+				loadout = xPlayer.getLoadout(),
+				maxWeight = xPlayer.getMaxWeight(),
+				money = xPlayer.getMoney(),
+			});
+		end
+	end)
+end);
+
+
+-- Also make sure to add this to es_extended/client/main.lua at the end of the file:
+
+RegisterNetEvent("esx:setPlayerData", function(playerData)
+	ESX.PlayerData = playerData;
+end)

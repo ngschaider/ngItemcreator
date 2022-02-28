@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ngItemcreator</title>
+
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+		<meta charset="utf-8">
+	</head>
+	<body class="d-none">
+		<div class="inner">
+			<div class="row">
+				<div class="col-4">
+					<input type="button" data-l10n="key:newItem;target:value" id="create-item" class="btn btn-success">
+				</div>
+				<div class="col-3">
+					<input type="text" data-l10n="key:search;target:placeholder;suffix:..." id="search-input" class="form-control">
+				</div>
+				<div class="col-1">
+					<input type="button" data-l10n="key:search;target:value" class="btn btn-primary" id="search-button">
+				</div>
+				<div class="col-3">
+					<div class="row">
+						<div class="col-5">
+							<div class="spinner-border text-light" id="spinner"></div>
+						</div>
+						<div class="col-7">
+							<select class="form-control" id="change-language">
+								<option value="en">English/English</option>
+								<option value="de">German/Deutsch</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-1">
+					<input type="button" data-l10n="key:close;target:value" id="close-menu" class="float-end btn btn-danger">
+				</div>
+			</div>
+
+			<div id="item-list-wrapper">
+				<table id="item-list-table" class="table table-striped table-bordered table-dark">
+					<thead>
+						<th data-l10n="key:name;suffix: (ID)"></th>
+						<th data-l10n="label"></th>
+						<th data-l10n="weight"></th>
+						<th></th>
+					</thead>
+					<tbody id="item-list">
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="modal" id="form">
+			<div class="modal-dialog modal-xl">
+				<div class="modal-content modal-dark">
+					<div class="modal-header">
+						<h5 class="modal-title"></h5>
+						<button type="button" style="color: white; background-color: transparent; border: none;" data-bs-dismiss="modal">X</button>
+					</div>
+					<div class="modal-body">
+						<div class="mb-3 row">
+							<label for="form-name" class="col-sm-3 col-form-label" data-l10n="key:name;suffix: (ID)"></label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="form-name">
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<label for="form-label" class="col-sm-3 col-form-label" data-l10n="label"></label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="form-label">
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<label for="form-weight" class="col-sm-3 col-form-label" data-l10n="weight"></label>
+							<div class="col-sm-8">
+								<input type="number" class="form-control" id="form-weight" min="0">
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<label for="form-rare" class="col-sm-3 col-form-label" data-l10n="rare"></label>
+							<div class="col-sm-8">
+								<input type="checkbox" class="form-check-input" id="form-rare" style="margin-top: 0.75rem">
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<label for="form-canRemove" class="col-sm-3 col-form-label" data-l10n="canRemove"></label>
+							<div class="col-sm-8">
+								<input type="checkbox" class="form-check-input" id="form-canRemove" style="margin-top: 0.75rem">
+							</div>
+						</div>
+
+						<h3 style="margin-top: 40px" data-l10n="executionSteps"></h3>
+						<div class="row">
+							<div class="col-9">
+								<select class="form-control" id="add-step-type">
+								</select>
+							</div>
+							<div class="col-3">
+								<input type="button" id="add-step" data-l10n="key:addStep;target:value" class="btn btn-success">
+							</div>
+						</div>
+
+						<div id="form-steps">
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-l10n="close"></button>
+						<button type="button" class="btn btn-success" id="modal-save" data-l10n="save"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="../config.js"></script>
+		<script src="locales/en.js"></script>
+		<script src="locales/de.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>

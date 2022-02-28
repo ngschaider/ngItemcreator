@@ -1,0 +1,46 @@
+if(!window.locales) {
+    window.locales = {};
+}
+
+
+window.locales.en = {
+    newItem: "New Item",
+    search: "Search",
+    close: "Close",
+    name: "Name",
+    label: "Label",
+    weight: "Weight",
+    rare: "Rare?",
+    canRemove: "Removing possible?",
+    executionSteps: "Execution steps",
+    save: "Save",
+    stepTypeAddItem: "Add item to inventory",
+    stepTypeRemoveItem: "Remove item from inventory",
+    stepTypeShowNotification: "Show notification",
+    stepTypeAddStatus: "Add status value",
+    stepTypeExecuteClientCommand: "Execute command client-sided",
+    stepTypeExecuteServerCommand: "Execute command server-sided",
+    stepTypeSpawnVehicle: "Spawn vehicle",
+    stepTypeExecuteClientCode: "Execute client-sided Lua-Code",
+    stepTypeExecuteServerCode: "Execute server-sided Lua-Code",
+    /*stepTypeAttachProp: "Attach prop",
+    stepTypePlayAnimation: "Play animation",*/
+    stepTypeEat: "Eat",
+    stepTypeDrink: "Drink",
+    invalidStep: "Invalid step!",
+    amount: "Amount",
+    text: "Text",
+    hunger: "Hunger",
+    thirst: "Thirst",
+    stress: "Stress",
+    value: "Value",
+    command: "Command",
+    code: "Code",
+    modelName: "Model name",
+    persistent: "Persistent",
+    edit: "Edit",
+    delete: "Delete",
+    createNewItem: "Create new item",
+    addStep: "Add Step",
+    optional: "Optional",
+}

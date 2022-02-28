@@ -1,0 +1,14 @@
+Version 1.0.3
+-------------
+
+- Rewrite of ESX Synchronization (Please remove added code from es_extended/server/common.lua and paste the code from INSTALLATION_INSTRUCTIONS.md)
+- Internally renamed executeCode to executeServerCode (Please remove all "Execute Code" steps and re-add them as "Execute server-sided Lua-Code")
+- Added new execution step "Execute client-sided lua code"
+- Internally renamed executeCommand to executeServerCommand (Please remove all "Execute Command" and re-add them as "Execute command server-sided")
+- Added new execution step "Execute command client-sided"
+- Added new execution step "Eat" (plays eating animation with optional prop attached)
+- Added new execution step "Drink" (plays drinking animation with optional prop attached)
+- Replaced hard-coded "superadmin" group check with ACE permission "command.itemcreator"
+- Added config.js to configure the default language for the UI (only "en" and "de" for now)
+
+For assistance with upgrading please open a ticket.
